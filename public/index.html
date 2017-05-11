@@ -13,7 +13,7 @@
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-  <link rel"stylesheet" href="/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/Users/smanongga/Sites/workspace/phase-1/week-3/volunteers-needy/public/css/main.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -34,9 +34,8 @@
           </button>
           <a class="navbar-brand" href="#">Volunteers and Needy</a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
+        <div id="navbar" class="collapse navbar-collapse navbar-right">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
             <li><a href="/browse">Browse</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -46,7 +45,32 @@
     <div class="container">
 
       <div class="starter-template">
-        {{{body}}}
+        <h1>Welcome</h1>
+        <div class="row">
+          <div class="col-md-7">
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend feugiat magna, et porttitor nunc varius sit amet. Proin suscipit porta arcu vitae pulvinar. Integer ullamcorper volutpat dolor at imperdiet. Pellentesque sit amet tortor sit amet urna congue accumsan sit amet eu libero. Nam euismod eros ac rhoncus ornare. </p>
+           <div class="latest-five">
+             <h2>Latest listings</h2>
+            <ul>
+              <li>Lorem ipsum dolor sit amet</li>
+              <li>Integer eleifend feugiat magna</li>
+              <li>Pellentesque sit amet tortor</li>
+            </ul>
+           </div>
+
+          </div>
+          <div class="col-md-3 offset-2">
+            <h2>Register</h2>
+            <form method="POST" action="./new">
+            <label>Name</label><br />
+            <input name="signupName" type="text" class="form-control"></input><br />
+            <label>Email</label><br />
+            <input name="signupEmail" type="text" class="form-control"></input><br /><br />
+            <input type="submit" name="" value="Sign up »" class="btn btn-primary btn-lg">
+          </form>
+          </div>
+        </div>
+
       </div>
 
     </div><!-- /.container -->
