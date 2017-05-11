@@ -1,7 +1,7 @@
 {
-  "name": "boilerplate-knex",
+  "name": "volunteers-needy",
   "version": "0.1.2",
-  "description": "Express boilerplate with Knex.js",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "knex": "knex",
