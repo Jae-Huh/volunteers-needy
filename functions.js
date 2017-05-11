@@ -1,10 +1,20 @@
 const db = require('./db')
 
-function lastFive (conn) {
-  db.getHomeListings(conn)
-    .then(index)
+function lastFiveVac (conn) {
+  return db.getHomeVacancies(conn)
+    .then(results => {
+      return results.slice(Math.max(results.length - 2, 1))
+    })
+}
+
+function lastFiveVol (conn) {
+  return db.getHomeVolunteers(conn)
+    .then(results => {
+      return results.slice(Math.max(results.length - 2, 1))
+    })
 }
 
 module.exports = {
-  lastFive
+  lastFiveVac,
+  lastFiveVol
 }

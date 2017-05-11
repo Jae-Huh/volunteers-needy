@@ -3,10 +3,21 @@ var router = express.Router()
 
 var db = require('../db')
 var func = require('../functions')
+var testrec
 
 router.get('/', function (req, res) {
-  func.lastFive(req.app.get('connection'))
-  res.render('index')
+  Promise.all([
+    func.lastFiveVac(req.app.get('connection')),
+    func.lastFiveVol(req.app.get('connection'))
+  ])
+  .then(result => {
+    const viewData = {
+      vacancies: result[0],
+      volunteers: result[1]
+    }
+    console.log(viewData)
+    res.render('index', viewData)
+  })
 })
 
 router.post('/new', function (req, res) {

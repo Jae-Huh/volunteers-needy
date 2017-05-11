@@ -3,7 +3,8 @@ module.exports = {
   getUser,
   getUsers,
   addUser,
-  getListings
+  getHomeVacancies,
+  getHomeVolunteers
 }
 
 function getUsers (connection) {
@@ -19,8 +20,12 @@ function addUser (newUser, connection) {
     .insert(newUser)
 }
 
-function getHomeListings (connection) {
+function getHomeVacancies (connection) {
   return connection('vacancies')
-    .join('volunteers', 'vacancies.category', 'volunteers.category as volunteer_category')
-    .select('vacancies.job_location', 'vacancies.category', 'volunteer_category', 'volunteers.location')
+    .select('vacancies.job_location', 'vacancies.category as vacancies_category')
+}
+
+function getHomeVolunteers (connection) {
+  return connection('volunteers')
+    .select('volunteers.location', 'volunteers.category')
 }
