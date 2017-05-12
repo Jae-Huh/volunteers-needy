@@ -7,7 +7,8 @@ module.exports = {
   getHomeVolunteers,
   addVacancies,
   addVolunteer,
-  getUserProfile
+  getUserProfile,
+  retrieveID
 }
 
 function getUsers (connection) {
