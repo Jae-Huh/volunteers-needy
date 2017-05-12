@@ -1,6 +1,6 @@
 <h1>Welcome</h1>
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-7">
     <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend feugiat magna, et porttitor nunc varius sit amet. Proin suscipit porta arcu vitae pulvinar. Integer ullamcorper volutpat dolor at imperdiet. Pellentesque sit amet tortor sit amet urna congue accumsan sit amet eu libero. Nam euismod eros ac rhoncus ornare. </p>
     <div class="latest-five">
       <h2>Latest listings</h2>
@@ -25,14 +25,28 @@
     </div>
 
   </div>
-  <div class="col-md-4">
-    <h2>Register</h2>
+  <div class="col-md-5">
+    <h2>Create an account</h2>
     <form method="POST" action="./new">
-      <label>Name</label><br />
-      <input name="signupName" type="text" class="form-control"></input><br />
-      <label>Email</label><br />
-      <input name="signupEmail" type="text" class="form-control"></input><br /><br />
-      <input type="submit" name="" value="Sign up »" class="btn btn-primary btn-lg">
+      <div class="row">
+      <div class="col-md-6">  <label>Name</label><br />
+        <input name="name" type="text" class="form-control"></input></div>
+      <div class="col-md-6"><label>Email</label><br />
+      <input name="email" type="text" class="form-control"></input></div>
+    </div>
+    <br />
+      <input type="submit" name="" value="Sign up »" class="btn btn-primary btn-md">
+    </form>
+    <hr>
+    <h2>Login</h2>
+    <form method="POST" action="./signin">
+      <div class="row">
+      <div class="col-md-6">
+       <label>Email</label><br />
+        <input name="signinemail" type="text" class="form-control"></input>
+      </div>
+      <div class="col-md-6">
+      <input type="submit" name="" value="Login" class="btn btn-primary btn-md"></div>
     </form>
   </div>
 </div>
