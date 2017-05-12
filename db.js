@@ -50,3 +50,9 @@ function getUserProfile (conn, id) {
   .select('users.name', 'vacancies.category as vacancies_category', 'vacancies.job_location', 'vacancies.description as vacancies_desc', 'vacancies.title', 'volunteers.location', 'volunteers.category')
   .where('users.id', id)
 }
+
+function retrieveID (user, conn){
+  return conn('users')
+  .select('users.id')
+  .where('users.email', user)
+}
