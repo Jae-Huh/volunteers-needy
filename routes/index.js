@@ -44,26 +44,31 @@ router.get('/profile/:id', (req, res) => {
   const userVacancies = db.getUserVacancies(req.app.get('connection'), UserId)
   // const userVolunteers = db.getUserVolunteers(req.app.get('connection'), UserId)
   const matchVolunteerToVacancies = db.matchVolunteerToVacancies(req.app.get('connection'), UserId)
+  const matchVacanciesToVolunteers = db.matchVacanciesToVolunteers (req.app.get('connection'), UserId)
   const everyoneElse = db.findMatches(req.app.get('connection'), UserId)
 
   Promise.all([
     userProfile,
     everyoneElse,
     userVacancies,
-    matchVolunteerToVacancies
+    matchVolunteerToVacancies,
+    matchVacanciesToVolunteers
   ])
   .then(result => {
-    const user = result[0][0]
+    const user = result[0]
     const vacancies = result[2]
-    const matches = result[3]
+    const matchedvacs = result[3]
+
+    const matchedvols = result[4]
 
     const view = {
-      name: user.name,
-      profile: result[0][0],
+      name: user[0].name,
+      profile: result[0],
       vacancies: vacancies,
-      matches: matches
+      matchedvacs: matchedvacs,
+      matchedvols: matchedvols
     }
-    console.log(matches)
+    console.log( 'profile:', user)
   res.render('profile', view)
   })
 })
