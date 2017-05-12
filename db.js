@@ -8,8 +8,31 @@ module.exports = {
   addVacancies,
   addVolunteer,
   getUserProfile,
-  retrieveID
+  retrieveID,
+  findMatches,
+  matchVolunteerToVacancies,
+  getUserVacancies
 }
+
+function matchVolunteerToVacancies (connection, id) {
+  return getUserVacancies(connection, id)
+    .then(result => {
+      if (result.length === 0) {
+        return result
+      }
+
+      const vacancies = result[0]
+      return connection('volunteers')
+        .where('category', vacancies.category)
+    })
+
+}
+
+function getUserVacancies (connection, id) {
+  return connection('vacancies')
+    .where('user_id', id)
+}
+
 
 function getUsers (connection) {
   return connection('users').select()
@@ -56,4 +79,12 @@ function retrieveID (user, conn){
   return conn('users')
   .select('users.id')
   .where('users.email', user)
+}
+
+function findMatches (conn, id){
+  return conn('users')
+  .leftJoin('volunteers', 'users.id', 'volunteers.user_id')
+  .leftJoin('vacancies', 'users.id', 'vacancies.user_id')
+  .select('users.name', 'users.email', 'vacancies.category as vacancies_category', 'vacancies.job_location', 'vacancies.description as vacancies_desc', 'vacancies.title', 'volunteers.location', 'volunteers.category')
+  .whereNot('users.id', id)
 }
