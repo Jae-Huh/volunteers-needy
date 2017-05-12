@@ -1,6 +1,22 @@
 body {
   padding-top: 50px;
 }
+/*
+ * Override Bootstrap's default container.
+ */
+
+@media (min-width: 1200px) {
+  .container {
+    width: 970px;
+  }
+}
+
 .starter-template {
   padding: 40px 15px;
+}
+.add-listing {
+  margin-top:20px;
+  font-size:20px;
+  font-weight:bold;
+  display:block;
 }
