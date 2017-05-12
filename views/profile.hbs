@@ -1,8 +1,31 @@
 <h1>Hi, {{name}}</h1>
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-7">
+    <h2>Your Matches</h2>
+    <h2>Open Listings</h2>
   </div>
-  <div class="col-md-6">
-    
+  <div class="col-md-5">
+    <h2>Add a listing</h2>
+    <form name="add_listing" method="POST" action="./listing">
+      <label>Title</label><br />
+      <input name="title" type="text" class="form-control"></input><br />
+      <label>Category</label><br />
+      <select name="type" class="form-control">
+        <option value="automotive">Automotive</option>
+        <option value="education">Education</option>
+        <option value="health and beauty">Health & Beauty</option>
+        <option value="health and living">Home & Living</option>
+        <option value="it">IT</option>
+        <option value="sales">Sales</option>
+        <option value="sports">Sports</option>
+        <option value="transport">Transport</option>
+      </select><br />
+      <label>Location</label><br />
+      <input name="signupEmail" type="text" class="form-control"></input><br />
+      <label>Job Description</label><br />
+      <textarea name="job_description" class="form-control">Enter text here...</textarea><br />
+      <br />
+      <input type="submit" name="" value="Submit" class="btn btn-primary btn-lg">
+    </form>
   </div>
 </div>
