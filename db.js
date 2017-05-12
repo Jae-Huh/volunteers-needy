@@ -46,8 +46,8 @@ function addVolunteer (connection, entry) {
 
 function getUserProfile (conn, id) {
   return conn('users')
-  .join('volunteers', 'users.id', 'volunteers.user_id')
-  .join('vacancies', 'users.id', 'vacancies.user_id')
+  .leftJoin('volunteers', 'users.id', 'volunteers.user_id')
+  .leftJoin('vacancies', 'users.id', 'vacancies.user_id')
   .select('users.name', 'vacancies.category as vacancies_category', 'vacancies.job_location', 'vacancies.description as vacancies_desc', 'vacancies.title', 'volunteers.location', 'volunteers.category')
   .where('users.id', id)
 }
