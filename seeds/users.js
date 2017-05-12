@@ -27,7 +27,15 @@ exports.seed = function (knex, Promise) {
         knex('users').insert({id: 99923, name: 'Wondering Wombat', email: 'wombat@example.org'}),
         knex('users').insert({id: 99924, name: 'Xenial Xerus', email: 'xerus@example.org'}),
         knex('users').insert({id: 99925, name: 'Yielding Yak', email: 'yak@example.org'}),
-        knex('users').insert({id: 99926, name: 'Zaftig Zebu', email: 'zebu@example.org'})
+        knex('users').insert({id: 99926, name: 'Zaftig Zebu', email: 'zebu@example.org'}),
+        knex('users').insert({id: 99927, name: 'Richard Hendricks', email: 'richard@example.org'}),
+        knex('users').insert({id: 99928, name: 'Erlich Bachman', email: 'erlich@example.org'}),
+        knex('users').insert({id: 99929, name: 'Nelson Bighetti', email: 'bighead@example.org'}),
+        knex('users').insert({id: 99930, name: 'Bertram Gilfoyle', email: 'gilfoyle@example.org'}),
+        knex('users').insert({id: 99931, name: 'Dinesh Chugtai', email: 'dinesh@example.org'}),
+        knex('users').insert({id: 99932, name: 'Jared Dunn', email: 'jared@example.org'}),
+        knex('users').insert({id: 99933, name: 'Gavin Belson', email: 'gavinbelson@example.org'}),
+        knex('users').insert({id: 99934, name: 'Jian Yang', email: 'jianyang@example.org'})
       ])
     })
 }

@@ -14,7 +14,7 @@ exports.seed = function(knex, Promise) {
         {id:7, user_id: 99907, location: 'Christchurch', category: 'Transport'},
         {id:8, user_id: 99908, location: 'Auckland', category: 'Transport'},
         {id:9, user_id: 99909, location: 'Christchurch', category: 'Health & Beauty'},
-        {id:10, user_id: 99910, location: 'Queenstown', category: 'Automotive'},
+        {id:10, user_id: 99910, location: 'Auckland', category: 'Automotive'},
         {id:11, user_id: 99911, location: 'Auckland', category: 'IT'},
         {id:12, user_id: 99912, location: 'Christchurch', category: 'Home & Living'},
         {id:13, user_id: 99913, location: 'Tauranga', category: 'Sports'},
@@ -30,7 +30,15 @@ exports.seed = function(knex, Promise) {
         {id:23, user_id: 99923, location: 'Queenstown', category: 'Sports'},
         {id:24, user_id: 99924, location: 'Wellington', category: 'Automotive'},
         {id:25, user_id: 99925, location: 'Auckland', category: 'Transport'},
-        {id:26, user_id: 99926, location: 'Hamilton', category: 'Education'}
+        {id:26, user_id: 99926, location: 'Hamilton', category: 'Education'},
+        {id:27, user_id: 99934, location: 'Auckland', category: 'Education'},
+        {id:28, user_id: 99931, location: 'Queenstown', category: 'Sports',},
+        {id:29, user_id: 99930, location: 'Whangarei', category: 'Home & Living'},
+        {id:30, user_id: 99929, location: 'Hamilton', category: 'Sports'},
+        {id:31, user_id: 99927, location: 'Tauranga', category: 'Health & Beauty'},
+        {id:32, user_id: 99926, location: 'Christchurch', category: 'Home & Living'},
+        {id:33, user_id: 99928, location: 'Auckland', category: 'Health & Beauty'},
+        {id:34, user_id: 99932, location: 'Queenstown', category: 'Sports'}
       ])
     })
 }
