@@ -11,6 +11,7 @@ module.exports = {
   retrieveID,
   findMatches,
   matchVolunteerToVacancies,
+  matchVacanciesToVolunteers,
   getUserVacancies
 }
 
@@ -31,6 +32,23 @@ function matchVolunteerToVacancies (connection, id) {
 function getUserVacancies (connection, id) {
   return connection('vacancies')
     .where('user_id', id)
+}
+
+function matchVacanciesToVolunteers (connection, id){
+  return getUserVolunteers(connection, id)
+  .then(result => {
+    if (result.length === 0){
+      return result
+    }
+    const volunteers = result[0]
+    return connection('vacancies')
+    .where('category', volunteers.category)
+  })
+}
+
+function getUserVolunteers(connection, id){
+  return connection('volunteers')
+  .where('user_id', id)
 }
 
 
