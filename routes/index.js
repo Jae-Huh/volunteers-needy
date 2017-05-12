@@ -3,7 +3,7 @@ var router = express.Router()
 
 var db = require('../db')
 var func = require('../functions')
-var testrec
+
 
 router.get('/', function (req, res) {
   Promise.all([
@@ -19,7 +19,13 @@ router.get('/', function (req, res) {
     res.render('index', viewData)
   })
 })
-
+router.post('/signin', (req, res) => {
+  const user = req.body.signinemail
+  db.retrieveID(user, req.app.get('connection'))
+  .then(result => {
+    res.redirect(`profile/${result[0].id}`)
+  })
+})
 router.post('/new', function (req, res) {
   const newUser = {
     name: req.body.name,
@@ -28,21 +34,50 @@ router.post('/new', function (req, res) {
   db.addUser(newUser, req.app.get('connection'))
     .then(result => {
       console.log(result)
-    })
-    .catch(function (err) {
-      res.status(500).send('DATABASE ERROR: ' + err.message)
+      const proNum = result[0]
+      res.redirect(`profile/${proNum}`)
     })
 })
+router.get('/profile/:id', (req, res) => {
+  var UserId = req.params.id
+  console.log('test')
+  db.getUserProfile(req.app.get('connection'), UserId)
+  .then(result => {
+    const view = result[0]
+    console.log(view)
+    res.render('profile', view)
+  })
+})
 
-
-
-//   db.getUsers(req.app.get('connection'))
-//     .then(function (users) {
-//       res.render('index', { users: users })
-//     })
-//     .catch(function (err) {
-//       res.status(500).send('DATABASE ERROR: ' + err.message)
-//     })
-// })
+router.post('/newlisting/:id', function (req, res) {
+  const decider = req.body.type
+  if (decider === 'vac') {
+    const newEntry = {
+      location: req.body.location,
+      title: req.body.title,
+      category: req.body.category,
+      user_id: req.params.id,
+      description: req.body.description
+    }
+    db.addVacancies(req.app.get('connection'), newEntry)
+      .then(result => {
+        console.log(result)
+      })
+      res.redirect('/')
+  }
+  else {
+    const newEntry = {
+      location: req.body.location,
+      category: req.body.category,
+      user_id: req.params.id,
+      description: req.body.description
+    }
+    db.addVolunteer(req.app.get('connection'), newEntry)
+      .then(result => {
+        console.log(result)
+      })
+      res.redirect('/')
+  }
+})
 
 module.exports = router
